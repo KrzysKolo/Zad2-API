@@ -1,0 +1,7 @@
+@import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
+.map {
+  background-color: rgba($primary-color, 0.5);
+  height: 100vh;
+  display: block;
+  width: 100%;
+}

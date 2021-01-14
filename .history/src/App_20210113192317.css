@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.container-user {
+  color: #000000;
+  cursor: pointer;
+  font-family: "Sahitya", serif;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  width: 45rem;
+}
+.container-user__wrapper {
+  border: 2px solid #919191;
+  box-shadow: 0 0 10px #444444;
+  background-color: #1e1d1d;
+  color: $secondary-color;
+  display: flex;
+  flex-direction: row;
+  margin: 3rem;
+  min-height: 20rem;
+}

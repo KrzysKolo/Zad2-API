@@ -1,0 +1,13 @@
+.loading-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  img {
+    color: $primary-color;
+    display: block;
+    font-size: 3rem;
+    margin: auto;
+    width: 300px;
+  }
+}

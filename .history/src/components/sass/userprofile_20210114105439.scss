@@ -1,0 +1,12 @@
+.user-profile-wrapper {
+  background-color: red;
+  border: 2px solid green;
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  &__left {
+    box-shadow: 0 3px 10px rgba($secondary-color, 0.3);
+    position: relative;
+    width: 13rem;
+  }
+}

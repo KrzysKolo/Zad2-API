@@ -1,0 +1,10 @@
+.loading-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  img {
+    display: block;
+    width: 300px;
+  }
+}

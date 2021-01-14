@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from "react";
+import { useParams, Link, Redirect } from "react-router-dom";
+// import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+
+const UserDetails = ({ users }) => {
+  const [user, setUser] = useState();
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (users) {
+      setUser(...users.filter((user) => user.login.uuid === id));
+    }
+  }, [users, id]);
+
+  if (!users) {
+    return <Redirect to="/" />;
+  }
+
+  if (user) {
+    const lat = user.location.coordinates.latitude;
+    const lon = user.location.coordinates.longitude;
+    const position = [parseFloat(lat), parseFloat(lon)];
+
+    return (
+      <>
+        <div>
+			<div>
+				<div className="photo">
+					<img src={user.picture.large} alt={user.name.first} />
+				</div>
+				<div className="age">
+					{user.dob.age}
+				</div>
+			</div>
+			<div>
+				<div className="info">
+					{user.name.first} {user.name.last}
+				</div>
+				<div className="info">
+				{user.location.city}
+				</div>
+			</div>
+		</div>
+        <p>
+          Hello, my name is <b>{user.name.first}</b> and I'm from{" "}
+          <b>{user.location.city}</b>
+        </p>
+        <Link to="/">Back</Link>
+
+       {/*  <MapContainer
+          center={position}
+          zoom={13}
+          scrollWheelZoom={false}
+          className="map"
+        >
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </MapContainer> */}
+      </>
+    );
+  } else {
+    return <p>Loading...</p>;
+  }
+};
+
+export default UserDetails;
